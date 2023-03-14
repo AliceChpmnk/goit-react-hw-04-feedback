@@ -9,11 +9,6 @@ export function App() {
   const [good, setGood] = useState(0);
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
-  const options = ['good', 'neutral', 'bad'];
-  const total = countTotalFeedback();
-  const hasFeedback = total !== 0;
-  const positivePercentage = countPositiveFeedbackPercentage(total);
-  const statistics = <Statistics good={good} neutral={neutral} bad={bad} total={total} positivePercentage={positivePercentage} />;
 
   function handleBtnClick(e) {
     const { name } = e.target;
@@ -41,6 +36,12 @@ export function App() {
     }
     return parseInt(good / total * 100);
   }
+
+  const options = ['good', 'neutral', 'bad'];
+  const total = countTotalFeedback();
+  const hasFeedback = total !== 0;
+  const positivePercentage = countPositiveFeedbackPercentage(total);
+  const statistics = <Statistics good={good} neutral={neutral} bad={bad} total={total} positivePercentage={positivePercentage} />;
   
   return (
       <>
